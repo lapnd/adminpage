@@ -1,0 +1,44 @@
+10
+
+dir
+325
+svn+ssh://lapd@hugelist.org/svn/server/hugelist/branches/hlstatistics/src/main
+svn+ssh://lapd@hugelist.org/svn/server/hugelist
+
+
+
+2014-06-04T04:44:20.488231Z
+325
+lapd
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3f0ece50-0e62-4dfc-83ef-10d5d85c10dd
+
+
+
+
+
+
+0
+
+java
+dir
+
+resources
+dir
+
+webapp
+dir
+

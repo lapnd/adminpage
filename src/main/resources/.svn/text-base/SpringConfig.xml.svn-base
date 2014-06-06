@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="accountService" class="com.hugelist.services.AccountServiceImpl">
+		<property name="hugeListDao" ref="hugeListDao" />
+	</bean>
+
+	<bean id="managerService" class="com.hugelist.services.ManagerServiceImpl">
+		<property name="hugeListDao" ref="hugeListDao" />
+	</bean>
+
+	<bean id="categoryService" class="com.hugelist.services.CategoryServiceImpl">
+		<property name="hugeListDao" ref="hugeListDao" />
+	</bean>
+	
+	<bean id="hugeListDao" class="com.hugelist.dao.HugeListDaoImpl">
+		<property name="emf" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="cassandra_hugelist" />
+	</bean>
+</beans>

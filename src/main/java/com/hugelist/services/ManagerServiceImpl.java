@@ -1,0 +1,92 @@
+package com.hugelist.services;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.hugelist.dao.HugeListDao;
+import com.hugelist.entities.Account;
+import com.hugelist.entities.Manager;
+
+@Service("managerService")
+public class ManagerServiceImpl implements ManagerService {
+	private static final Logger log = LoggerFactory
+			.getLogger(ManagerServiceImpl.class);
+
+	HugeListDao hugeListDao;
+
+	public HugeListDao getHugeListDao() {
+		return hugeListDao;
+	}
+
+	public void setHugeListDao(HugeListDao hugeListDao) {
+		this.hugeListDao = hugeListDao;
+	}
+
+	public ManagerServiceImpl() {
+	}
+
+	public ManagerServiceImpl(HugeListDao dao) {
+		this.hugeListDao = dao;
+	}
+
+	@Override
+	public void insert(Manager manager) {
+		hugeListDao.insert(manager);
+		log.info("Manager {} information successfully inserted.",
+				manager.getUserName());
+	}
+
+	@Override
+	public void remove(Manager manager) {
+		hugeListDao.remove(manager);
+		log.info("Manager successfully removed");
+	}
+
+	@Override
+	public void update(Manager manager) {
+		hugeListDao.update(manager);
+		log.info("Manager {} information successfully updated.",
+				manager.getUserName());
+	}
+
+	@Override
+	public List<Manager> findByName(String accountName) {
+		String query = "Select a from " + Manager.class.getSimpleName()
+				+ " a where a.userName = " + accountName;
+		List<Manager> listManager = (List<Manager>) hugeListDao
+				.findByQuery(query);
+
+		return listManager;
+	}
+	
+	@Override
+	public List<Manager> findAll(){
+		String query = "Select a from " + Manager.class.getSimpleName() + " a";
+		List<Manager> listManager = (List<Manager>) hugeListDao.findByQuery(query);
+
+		return listManager;
+	}
+
+	@Override
+	public boolean authenticate(Manager manager, String password) {
+		boolean success = false;
+		if (manager != null && (manager.getPass().equals(password))) {
+			log.info("Manager {} successfully authenticated.",
+					manager.getUserName());
+			success = true;
+		} else {
+			log.info("Manager not authenticated, caused by either wrong userName or wrong password.");
+		}
+		return success;
+	}
+
+	@Override
+	public Manager findById(Object id) {
+		log.info("Finding Manager by id {} .", id);
+		return hugeListDao.findById(Manager.class, id);
+	}
+
+}

@@ -1,0 +1,88 @@
+body {
+    background-color:#F5FEFE;
+    margin : 0 auto;
+}
+
+.outer-wrapper {
+    margin: 0 auto;
+    width: 100%;    
+}
+
+.error{ 
+	color: white;
+}
+
+#topContent{
+    margin:0 auto;
+    width:100%;
+    float:left;  
+    /*background-color:#B2CFED;*/
+    background-color:white;
+    height:180px;  
+	/*background-image: url(./dt.jpg);
+	background-repeat:no-repeat;
+	background-position: 200px 0px; */
+}
+
+#grayLine{
+	margin:0 auto;
+    width:100%;
+    float:left;  
+	background-color:#BEBEBE;
+    height:13px;  
+}
+
+#loginPanel{
+	margin-top : 1px;	
+    width:100%;
+    float:left;  
+	background-color:#0066CC;
+	/*background-color:#104E8B;*/
+    height:170px;  
+}
+
+#botContent
+{
+	margin-top : 1px;	
+    width:100%;
+    float:left;  
+	background-color:#43CD80;
+    height:50px;  
+}
+
+#content{
+	margin:60px auto;
+    width:50%;
+    float:right;  	
+    height:70%; 
+}
+
+#btLogin{
+	border:1px solid #DCDCDC;
+	background-color:transparent;
+	font-size:0.99em;	
+	color: white;
+	font-family: courier;
+	width:43px;
+	border-radius:3px;
+	background-image: url(../images/arrow.png);
+	background-repeat:no-repeat;
+	background-position: 0px 3px; 
+}
+
+.lbLogin{
+	font-size:0.75em;
+	color: white;
+	font-family: courier;	
+}
+
+.txtInput{
+	border:inset white 2px;		
+	font-family: Tahoma;	
+	font-size:0.80em;
+}
+
+.clear{
+    clear:both;
+}
+
