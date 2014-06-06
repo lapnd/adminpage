@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 import com.hugelist.client.entities.WManager;
@@ -12,10 +14,9 @@ import com.hugelist.entities.Manager;
 
 public class ManagerServiceWeb {
 
-	@SuppressWarnings("deprecation")
-	XmlBeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("SpringConfig.xml"));
-	ManagerService managerService = (ManagerService) beanFactory.getBean("managerService");
-	CategoryService categoryService = (CategoryService)beanFactory.getBean("categoryService");
+	ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml"); //$NON-NLS-1$
+	ManagerService managerService = (ManagerService) this.context.getBean("managerService");
+	CategoryService categoryService = (CategoryService)this.context.getBean("categoryService");
 	
 	private static ManagerServiceWeb serviceClient;
 

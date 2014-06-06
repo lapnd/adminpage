@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +26,8 @@ import com.hugelist.utils.Utils;
 //@RequestMapping("/management")
 public class LoginController {
 
-	@SuppressWarnings("deprecation")
-	XmlBeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource(
-			"SpringConfig.xml"));
-	ManagerService managerService = (ManagerService) beanFactory
-			.getBean("managerService");
+	ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml"); //$NON-NLS-1$
+	ManagerService managerService = (ManagerService) this.context.getBean("managerService");
 	
 	@RequestMapping(value="/")
 	public ModelAndView printWelcome() {	    
@@ -99,7 +98,7 @@ public class LoginController {
 			session.setAttribute("menuId", 0);
 			
 			mav.setViewName("default");
-			mav.addObject("menu_stt", "classification");
+			mav.addObject("menu_stt", "category");
 		}
 		
 		return mav;

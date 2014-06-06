@@ -85,9 +85,9 @@ function initMenu() {
 						</ul>
 					</li>
 				
-						<li ${menu_stt=="classification"?"class='active'":""}>
+						<li ${menu_stt=="category"?"class='active'":""}>
 							<a href="<c:url value='/default'/>">
-								<img src="<c:url value="/css/images/icon-list-white.png"/>">&nbsp; Classification
+								<img src="<c:url value="/css/images/icon-list-white.png"/>">&nbsp; Category
 							</a>
 						</li>
 					
