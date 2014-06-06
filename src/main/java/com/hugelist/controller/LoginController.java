@@ -25,7 +25,7 @@ import com.hugelist.utils.Utils;
 @Controller
 //@RequestMapping("/management")
 public class LoginController {
-
+	//vinh
 	ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml"); //$NON-NLS-1$
 	ManagerService managerService = (ManagerService) this.context.getBean("managerService");
 	
